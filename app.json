@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ROTEM",
-    "slug": "ROTEM",
+    "name": "ROTEM App",
+    "slug": "RotemApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ubcrotemapp.RotemApp"
     },
     "android": {
       "adaptiveIcon": {
@@ -22,6 +23,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "38d3fe52-3b5e-4e29-bff6-675fa40c26a9"
+      }
     }
   }
 }
