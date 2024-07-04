@@ -13,6 +13,12 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "ubcrotemapp@gmail.com",
+        "ascAppId": "6511210878",
+        "appleTeamId": "5KJ279HSRH"
+      }
+    }
   }
 }

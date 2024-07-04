@@ -264,8 +264,8 @@ const Screen3 = ({navigation}) => {
       <SubBulletPoint text="Hemoglobin 70 – 80 g/L" bullet="i."/>
       <SubBulletPoint text="Hematocrit 0.21 – 0.24" bullet="ii."/>
       <SubBulletPoint text="Platelets:" bullet="iii."/>
-      <SubSubBulletPoint text="Aim > 50^9/L" bullet="1."/>
-      <SubSubBulletPoint text="Transfuse if < 75^9/L" bullet="2."/>
+      <SubSubBulletPoint text="Aim > 50x10^9/L" bullet="1."/>
+      <SubSubBulletPoint text="Transfuse if < 75x10^9/L" bullet="2."/>
       <SubBulletPoint text="INR < 1.5" bullet="iv."/>
       <SubBulletPoint text="aPTTr < 1.5" bullet="v."/>
       <SubBulletPoint text="Fibrinogen – treat if < 2 g/L" bullet="vi."/>
