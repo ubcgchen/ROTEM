@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import ImageZoom from 'react-native-image-pan-zoom';
 
+//lol
 
 const Stack = createNativeStackNavigator();
 
