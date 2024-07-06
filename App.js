@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native';
 import ImageZoom from 'react-native-image-pan-zoom';
 
 
@@ -147,8 +147,8 @@ export default function App() {
 const BulletPoint = ({ text }) => {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 15 }}>
-      <Text style={{ fontSize: 20, marginLeft: 10, marginRight: 5, fontWeight: "bold", }}>•</Text>
-      <Text style={{ fontSize: 20, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
+      <Text style={{ fontSize: 16, marginLeft: 10, marginRight: 5, fontWeight: "bold", }}>•</Text>
+      <Text style={{ fontSize: 16, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
     </View>
   );
 };
@@ -156,8 +156,8 @@ const BulletPoint = ({ text }) => {
 const SubBulletPoint = ({ text, bullet }) => {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 5 }}>
-      <Text style={{ fontSize: 15, marginLeft: 50, marginRight: 5, fontWeight: "bold", }}>{bullet}</Text>
-      <Text style={{ fontSize: 15, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
+      <Text style={{ fontSize: 13, marginLeft: 50, marginRight: 5, fontWeight: "bold", }}>{bullet}</Text>
+      <Text style={{ fontSize: 13, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
     </View>
   );
 };
@@ -165,8 +165,8 @@ const SubBulletPoint = ({ text, bullet }) => {
 const SubSubBulletPoint = ({ text, bullet }) => {
   return (
     <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginBottom: 5 }}>
-      <Text style={{ fontSize: 15, marginLeft: 100, marginRight: 5, fontWeight: "bold", }}>{bullet}</Text>
-      <Text style={{ fontSize: 15, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
+      <Text style={{ fontSize: 13, marginLeft: 100, marginRight: 5, fontWeight: "bold", }}>{bullet}</Text>
+      <Text style={{ fontSize: 13, flex: 1, marginRight: 10, fontWeight: "bold", }}>{text}</Text>
     </View>
   );
 };
@@ -203,7 +203,7 @@ the Werfen ROTEM Sigma device.</Text>
     
     <TouchableOpacity
             style={styles.button}
-            title="Learn about OB ROTEM"
+            title="Learn more about ROTEM for OB"
             onPress={() =>
               navigation.navigate('E1')}>
         <Text style={styles.buttontext}>Learn about OB ROTEM</Text>
@@ -646,34 +646,37 @@ const Screen22 = ({ navigation }) => {
 const Screen23 = ({ navigation }) => {
   return (
     <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollcontainer}>
       <Text style={styles.prompt}> Learn about ROTEM for OB </Text>
-      <Text style={styles.body}> ROTEM (rotational thromboelastometry) is a point of care coagulation analyzer. It evaluates the capacity of a patient's whole blood to form a stable clot and provides valuable information to direct the administration of blood products within minutes of initiating the test. </Text>
+      <Text style={styles.bodyE}>ROTEM (rotational thromboelastometry) is a point of care coagulation analyzer. It evaluates the capacity of a patient's whole blood to form a stable clot and provides valuable information to direct the administration of blood products within minutes of initiating the test. </Text>
       
       <Image
         source={require('./assets/Rotem.png')}
         style={styles.image} />
 
-      <Text style={styles.body}>  The use of ROTEM (rotational thromboelastometry) to guide blood product management in postpartum hemorrhage has several benefits. It has been shown to reduce the total number of blood products transfused, decrease the risk of transfusion-related injuries such as transfusion-related acute lung injury (TRALI) and transfusion-associated cardiac overload (TACO), and lessen the need for intensive care unit (ICU) admissions.</Text>
+      <Text style={styles.bodyE}>The use of ROTEM (rotational thromboelastometry) to guide blood product management in postpartum hemorrhage has several benefits. It has been shown to reduce the total number of blood products transfused, decrease the risk of transfusion-related injuries such as transfusion-related acute lung injury (TRALI) and transfusion-associated cardiac overload (TACO), and lessen the need for intensive care unit (ICU) admissions.</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E2')}>
         <Text>Next</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
-        <Text>Back</Text>
+        <Text>Main Menu</Text>
       </TouchableOpacity>
+    </ScrollView>
     </View>
   );
 };
 
 const Screen24 = ({ navigation }) => {
   return (
-    <View style={styles.container_top}>
-      <Text style={styles.bodyfit}> The ROTEM analyzer provides several different test results on the screen. A summary of these results is presented below:</Text>
+    <View style={styles.containerE}>
+    <ScrollView contentContainerStyle={styles.scrollcontainerE}>
+      <Text style={styles.bodyfit}>The ROTEM analyzer provides several different test results on the screen. A summary of these results is presented below:</Text>
       
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• EXTEM</Text> approximates the external clotting pathway, similar to the INR result. </Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• INTEM</Text> approximates the internal clotting pathway, similar to the aPTTr result. </Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• FIBTEM</Text> includes a platelet inhibitor, thus analyzing only the fibrinogen component of the clot. It correlates with the Clauss fibrinogen laboratory result. Due to the absence of platelet activity, the FIBTEM normally appears much thinner than the other tests. </Text>     
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• APTEM</Text> contains an antifibrinolytic agent. By comparing APTEM with EXTEM results, it can highlight hyperfibrinolysis and identify patients who might benefit from an antifibrinolytic, such as tranexamic acid. </Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• HEPTEM</Text> is an optional test that includes heparinase. If the HEPTEM result is normal but the INTEM result is abnormal, it indicates that heparin is present in the patient’s system and affecting clotting. This test is not commonly required for obstetric patients. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• EXTEM</Text> approximates the external clotting pathway, similar to the INR result. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• INTEM</Text> approximates the internal clotting pathway, similar to the aPTTr result. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• FIBTEM</Text> includes a platelet inhibitor, thus analyzing only the fibrinogen component of the clot. It correlates with the Clauss fibrinogen laboratory result. Due to the absence of platelet activity, the FIBTEM normally appears much thinner than the other tests. </Text>     
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• APTEM</Text> contains an antifibrinolytic agent. By comparing APTEM with EXTEM results, it can highlight hyperfibrinolysis and identify patients who might benefit from an antifibrinolytic, such as tranexamic acid. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• HEPTEM</Text> is an optional test that includes heparinase. If the HEPTEM result is normal but the INTEM result is abnormal, it indicates that heparin is present in the patient’s system and affecting clotting. This test is not commonly required for obstetric patients. </Text> 
       
       <Image
         source={require('./assets/Rotem4p.png')}
@@ -685,26 +688,32 @@ const Screen24 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E1')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
+    </ScrollView>
     </View>
   );
 };
 
 const Screen25 = ({ navigation }) => {
   return (
-    <View style={styles.container_top}>
-      <Text style={styles.bodyfit}> Several variables are presented for each test, as shown in the image and described below:</Text>
+    
+    <View style={styles.container}>
+     <ScrollView contentContainerStyle={styles.scrollcontainer}>
+      <Text style={styles.bodyfit}>Several variables are presented for each test, as shown in the image and described below:</Text>
 
        <Image
         source={require('./assets/Rotem2.png')}
         style={styles.image3} />
       
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• Clotting Time (CT): </Text> The time from the start of the test to clot initiation. A prolonged CT indicates a shortage of clotting factors or the presence of anticoagulants like Warfarin or Heparin. </Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• Clot Formation Time (CFT): </Text> The time from clot initiation to the formation of a stable clot, estimating the velocity of clot formation. </Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• Alpha Angle: </Text> This is related to CFT, representing the angle of the tangent at the time of clot formation. It indicates the speed of clot build-up.</Text>     
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• Maximum Clot Firmness (MCF):</Text> The thickness of the final ROTEM graph, representing the strength of the clot. MCF depends on platelets, fibrinogen, and factor XIII activity.</Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• A5 and A10: </Text> The MCF at 5 and 10 minutes, respectively. These are early indicators of clot strength and correlate well with MCF.</Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• Maximum Lysis (ML): </Text> The decrease in clot strength due to hyperfibrinolysis, shown as the final clot firmness as a percentage of MCF.</Text> 
-      <Text style={styles.bodyfit}> <Text style={styles.boldText}>• LI30 and LI60: </Text> Clot firmness as a percentage of MCF at 30 minutes and 60 minutes, respectively.</Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• Clotting Time (CT): </Text> The time from the start of the test to clot initiation. A prolonged CT indicates a shortage of clotting factors or the presence of anticoagulants like Warfarin or Heparin. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• Clot Formation Time (CFT): </Text> The time from clot initiation to the formation of a stable clot, estimating the velocity of clot formation. </Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• Alpha Angle: </Text> This is related to CFT, representing the angle of the tangent at the time of clot formation. It indicates the speed of clot build-up.</Text>     
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• Maximum Clot Firmness (MCF):</Text> The thickness of the final ROTEM graph, representing the strength of the clot. MCF depends on platelets, fibrinogen, and factor XIII activity.</Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• A5 and A10: </Text> The MCF at 5 and 10 minutes, respectively. These are early indicators of clot strength and correlate well with MCF.</Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• Maximum Lysis (ML): </Text> The decrease in clot strength due to hyperfibrinolysis, shown as the final clot firmness as a percentage of MCF.</Text> 
+      <Text style={styles.bodyfit}><Text style={styles.boldText}>• LI30 and LI60: </Text> Clot firmness as a percentage of MCF at 30 minutes and 60 minutes, respectively.</Text> 
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E4')}>
         <Text>Next</Text>
@@ -712,6 +721,10 @@ const Screen25 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E2')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
+    </ScrollView>
     </View>
   );
 };
@@ -719,7 +732,7 @@ const Screen25 = ({ navigation }) => {
 const Screen26 = ({ navigation }) => {
   return (
     <View style={styles.container_top}>
-      <Text style={styles.body}>  In the third trimester of pregnancy, patients are typically hypercoagulable. This manifests on the ROTEM as an increase in the Maximum Clot Firmness (MCF), as well as in the A5 and A10 values, across all tests. Consequently, reference ranges differ from those of the non-pregnant population. Therefore, an obstetric-specific algorithm, such as the one used in this app, should be utilized when interpreting ROTEM data.</Text>
+      <Text style={styles.bodyE}>In the third trimester of pregnancy, patients are typically hypercoagulable. This manifests on the ROTEM as an increase in the Maximum Clot Firmness (MCF), as well as in the A5 and A10 values, across all tests. Consequently, reference ranges differ from those of the non-pregnant population. Therefore, an obstetric-specific algorithm, such as the one used in this app, should be utilized when interpreting ROTEM data.</Text>
       
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E5')}>
         <Text>Next</Text>
@@ -727,20 +740,24 @@ const Screen26 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E3')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const Screen27 = ({ navigation }) => {
   return (
-    <View style={styles.container_top}>
-      <Text style={styles.body}> Some common ROTEM patterns in coagulopathy following postpartum hemorrhage include:</Text>
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollcontainer}>
+      <Text style={styles.bodyE}>Some common ROTEM patterns in coagulopathy following postpartum hemorrhage include:</Text>
 
        <Image
         source={require('./assets/RotemhypoF.png')}
         style={styles.image4} />
       
-      <Text style={styles.body}> <Text style={styles.boldText}>Hypofibrinogenemia:</Text> All causes of postpartum hemorrhage can lead to a loss of fibrinogen, which pregnant patients rely on more for clot formation compared to non-pregnant patients. On the ROTEM, this condition is most noticeable in the FIBTEM test, which will appear extremely narrow or flat, with corresponding reductions in MCF, A5, A10, and the alpha angle. The EXTEM, INTEM, and APTEM tests are also likely to show reductions in MCF, A5, A10, and the alpha angle. However, in these tests, such reductions are not specific to hypofibrinogenemia and could also result from low platelet counts. </Text> 
+      <Text style={styles.bodyE}><Text style={styles.boldText}>Hypofibrinogenemia:</Text>All causes of postpartum hemorrhage can lead to a loss of fibrinogen, which pregnant patients rely on more for clot formation compared to non-pregnant patients. On the ROTEM, this condition is most noticeable in the FIBTEM test, which will appear extremely narrow or flat, with corresponding reductions in MCF, A5, A10, and the alpha angle. The EXTEM, INTEM, and APTEM tests are also likely to show reductions in MCF, A5, A10, and the alpha angle. However, in these tests, such reductions are not specific to hypofibrinogenemia and could also result from low platelet counts. </Text> 
     
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E6')}>
         <Text>Next</Text>
@@ -748,14 +765,18 @@ const Screen27 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E4')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
+    </ScrollView>
     </View>
   );
 };
 
 const Screen28 = ({ navigation }) => {
   return (
-    <View style={styles.container_top}>
-      <Text style={styles.body}> <Text style={styles.boldText}>Reduced Clotting Factors:</Text> This condition generally causes a noticeable prolongation of the Clotting Time (CT) in all tests. The EXTEM test (which assesses Factors VII, X, V, II, and I) and the INTEM test (which assesses Factors XII, XI, IX, VIII, X, V, II, and I) can be used to identify which specific clotting factors are deficient. However, the exact CT cut-off for the replacement of clotting factors with fresh frozen plasma in postpartum hemorrhage has not yet been defined.</Text> 
+    <View style={styles.container}>
+      <Text style={styles.bodyE1}><Text style={styles.boldText}>Reduced Clotting Factors:</Text> This condition generally causes a noticeable prolongation of the Clotting Time (CT) in all tests. The EXTEM test (which assesses Factors VII, X, V, II, and I) and the INTEM test (which assesses Factors XII, XI, IX, VIII, X, V, II, and I) can be used to identify which specific clotting factors are deficient. However, the exact CT cut-off for the replacement of clotting factors with fresh frozen plasma in postpartum hemorrhage has not yet been defined.</Text> 
         
         <Image
         source={require('./assets/RotemhypoC.png')}
@@ -767,6 +788,9 @@ const Screen28 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E5')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -774,7 +798,7 @@ const Screen28 = ({ navigation }) => {
 const Screen29 = ({ navigation }) => {
   return (
     <View style={styles.container_top}>
-      <Text style={styles.body}> <Text style={styles.boldText}>Low Platelets:</Text> This condition will cause a reduction in the MCF, A5, and A10 values in all tests except for the FIBTEM, which will remain normal. The ROTEM cut-off for triggering platelet transfusion has not been defined, so clinicians are advised to run a complete blood count to assess platelet concentration.</Text> 
+      <Text style={styles.bodyE}><Text style={styles.boldText}>Low Platelets:</Text> This condition will cause a reduction in the MCF, A5, and A10 values in all tests except for the FIBTEM, which will remain normal. The ROTEM cut-off for triggering platelet transfusion has not been defined, so clinicians are advised to run a complete blood count to assess platelet concentration.</Text> 
         
         <Image
         source={require('./assets/RotemhypoP.png')}
@@ -786,6 +810,9 @@ const Screen29 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E6')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -793,7 +820,7 @@ const Screen29 = ({ navigation }) => {
 const Screen30 = ({ navigation }) => {
   return (
     <View style={styles.container_top}>
-      <Text style={styles.body}> <Text style={styles.boldText}>Hyperfibrinolysis:</Text> This condition, characterized by accelerated clot breakdown, presents as increased maximum lysis (ML), LI30, and LI60 across all tests except for the APTEM. In pregnant patients, hyperfibrinolysis is often poorly represented by ROTEM, possibly because the primary hyperfibrinolysis occurs in the placental bed rather than in the patient’s circulation. Therefore, tranexamic acid should be administered to all patients suffering from postpartum hemorrhage and should not be withheld based on a normal ROTEM lysis result.</Text> 
+      <Text style={styles.bodyE}><Text style={styles.boldText}>Hyperfibrinolysis:</Text> This condition, characterized by accelerated clot breakdown, presents as increased maximum lysis (ML), LI30, and LI60 across all tests except for the APTEM. In pregnant patients, hyperfibrinolysis is often poorly represented by ROTEM, possibly because the primary hyperfibrinolysis occurs in the placental bed rather than in the patient’s circulation. Therefore, tranexamic acid should be administered to all patients suffering from postpartum hemorrhage and should not be withheld based on a normal ROTEM lysis result.</Text> 
         
         <Image
         source={require('./assets/RotemhypoL.png')}
@@ -805,6 +832,9 @@ const Screen30 = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E7')}>
         <Text>Back</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
+        <Text>Main Menu</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -812,18 +842,19 @@ const Screen30 = ({ navigation }) => {
 const Screen31 = ({ navigation }) => {
   return (
     <View style={styles.container_top}>
-      <Text style={styles.body}> <Text style={styles.boldText}> Disseminated Intravascular Coagulopathy (DIC):</Text> This condition can occur in patients with placental abruption, intrauterine fetal demise, sepsis, or amniotic fluid embolism. In DIC, all ROTEM parameters will likely be extremely abnormal. Patients may require supplementation of fibrinogen, clotting factors, and platelets, as well as the administration of tranexamic acid.</Text> 
+      <Text style={styles.bodyE}><Text style={styles.boldText}>Disseminated Intravascular Coagulopathy (DIC):</Text> This condition can occur in patients with placental abruption, intrauterine fetal demise, sepsis, or amniotic fluid embolism. In DIC, all ROTEM parameters will likely be extremely abnormal. Patients may require supplementation of fibrinogen, clotting factors, and platelets, as well as the administration of tranexamic acid.</Text> 
         
         <Image
         source={require('./assets/RotemDIC.png')}
         style={styles.image4} />
-     
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E8')}>
+        <Text>Back</Text>
+      </TouchableOpacity>     
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('1')}>
         <Text>Main Menu</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('E8')}>
-        <Text>Back</Text>
-      </TouchableOpacity>
+
     </View>
   );
 };
@@ -839,7 +870,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    marginTop: 20
+    marginTop: 20,
+    alignSelf: 'center',
   },
   buttonblue: {
     borderWidth: 2,
@@ -898,7 +930,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'flex_start',
-    paddingTop: 75
+    paddingTop: "15%"
   },
   prompt: {
     fontSize: 20,
@@ -916,8 +948,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     position: 'absolute',
-    bottom: 32,
-    right: 32,
+    bottom: "3%",
+    right: "3%",
   },
   imageA:{
     flex: 1,
@@ -933,27 +965,28 @@ const styles = StyleSheet.create({
   },
   image2:{
     width: "85%",
-    height: "25%",
+    height: "26%",
     resizeMode: 'contain',
     aspectRatio: 1.85,
   },
     image3:{
-    width: "85%",
+    width: "100%",
     height: "20%",
     resizeMode: 'contain',
-    aspectRatio: 3.2,
+    aspectRatio: 2.2,
   },
     image4:{
-    width: "85%",
+    width: "90%",
     height: "40%",
     resizeMode: 'contain',
-    aspectRatio: 1.2,
+    aspectRatio: 1.1,
+    alignSelf: 'center',
   },
   boldText: {
     fontWeight: 'bold',
   },
   bodyfit: {
-    textAlign: 'justify',
+    textAlign: 'leftAlign',
     margin: 8,
     fontSize: 13,
   },
@@ -965,8 +998,47 @@ const styles = StyleSheet.create({
   containerE: {
     flex: 1,
     backgroundColor: '#FFF',
-    alignItems: 'center',
+    // alignItems: 'left',
+    // justifyContent: 'left',
+},
+  scrollcontainer: {
+    backgroundColor: '#FFF',
+    // alignItems: 'center',
+    justifyContent: 'flex_start',
+    paddingTop: 75,
+    marginLeft: 5,
+    marginRight: 5,
+    paddingBottom: 70,
+},
+  scrollcontainerE: {
+    backgroundColor: '#FFF',
+    alignItems: 'left',
+    justifyContent: 'flex_start',
+    paddingTop: 75,
+    marginLeft: 5,
+    marginRight: 5,
+    paddingBottom: 70,
+},
+  section: {
+    height: 150,
+    marginBottom: 20,
+    backgroundColor: 'lightgray',
     justifyContent: 'center',
-}
+    alignItems: 'center',
+  },
+  bodyE: {
+    textAlign: 'leftAlign',
+    margin: 20
+  },
+  bodyE1: {
+    textAlign: 'leftAlign',
+    margin: 15,
+    paddingBottom: 0,
+  },
+  bodyfitE: {
+    textAlign: 'left',
+    margin: 8,
+    fontSize: 13,
+  },
 }
 )

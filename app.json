@@ -13,7 +13,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ubcrotemapp.RotemApp"
+      "bundleIdentifier": "com.ubcrotemapp.RotemApp",
+      "buildNumber": "3",
+      "infoPlist": {
+        "UIBackgroundModes": [] 
+      }
     },
     "android": {
       "adaptiveIcon": {
