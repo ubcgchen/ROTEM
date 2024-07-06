@@ -963,6 +963,7 @@ const styles = StyleSheet.create({
     height: "30%",
     resizeMode: 'contain',
     aspectRatio: 1.5,
+    alignSelf: 'center',
   },
   image2:{
     width: "85%",
@@ -974,7 +975,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "20%",
     resizeMode: 'contain',
-    aspectRatio: 2.2,
+    aspectRatio: 2.3,
   },
     image4:{
     width: "90%",
